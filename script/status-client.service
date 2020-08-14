@@ -1,0 +1,15 @@
+[Unit]
+Description=ServerStatus-client
+Documentation=https://github.com/LilligantMatsuri/ServerStatus
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=python /usr/local/ServerStatus/client/status-client.py
+StandardOutput=file:/tmp/serverstatus_client.log
+StandardError=file:/tmp/serverstatus_client.log
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=statusc.service
